@@ -2,15 +2,6 @@
   document.documentElement.classList.add('js');
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- marquee content ---- */
-  var spark='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>';
-  var words=['Techstars','Sequoia Scouts','Y Combinator','Antler','On Deck','SOSV','Founders, Inc','South Park Commons','Village Global'];
-  var mq=document.getElementById('mq');
-  if(mq){
-    var one=words.map(function(w){return '<span class="mq-item">'+spark+w+'</span>';}).join('');
-    mq.innerHTML=one+one; // duplicate for seamless loop
-  }
-
   /* ---- FAQ ---- */
   var faqs=[
     ['Is IdeaConnect free to use?','Yes — creating a profile, sharing ideas, and discovering people is free. We\'ll introduce optional premium tools for power users and funds later, but the core experience stays free.'],

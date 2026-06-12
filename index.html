@@ -107,10 +107,6 @@
   .hero h1 .g{color:#7FA4FF;}
   .hero p.sub{font-size:clamp(17px,1.7vw,21px);color:#B6B6BB;margin-top:24px;max-width:480px;line-height:1.55;}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
-  .hero-proof{margin-top:32px;display:flex;align-items:center;gap:14px;color:#9A9AA0;font-size:14px;font-weight:500;}
-  .stack{display:flex;}
-  .stack .a{width:34px;height:34px;border-radius:50%;border:2px solid var(--night);background:#2a2a30;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-left:-10px;}
-  .stack .a:first-child{margin-left:0;}
 
   .hero-stage{position:relative;height:560px;}
   .phone-img{position:absolute;border-radius:38px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));will-change:transform;--px:0px;--py:0px;}
@@ -121,12 +117,6 @@
   @keyframes float2{0%,100%{transform:translate(var(--px),var(--py))}50%{transform:translate(var(--px),calc(var(--py) - 13px))}}
   @keyframes float3{0%,100%{transform:translate(var(--px),var(--py))}50%{transform:translate(var(--px),calc(var(--py) + 14px))}}
 
-  .marquee{border-bottom:1px solid var(--border);background:#fff;padding:30px 0;overflow:hidden;}
-  .marquee-row{display:flex;gap:64px;width:max-content;animation:scrollx 32s linear infinite;}
-  .marquee:hover .marquee-row{animation-play-state:paused;}
-  @keyframes scrollx{to{transform:translateX(-50%)}}
-  .mq-item{font-size:21px;font-weight:800;letter-spacing:-0.02em;color:#C2C2C7;white-space:nowrap;display:flex;align-items:center;gap:10px;}
-  .mq-item svg{width:20px;height:20px;}
 
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;}
@@ -260,13 +250,6 @@
       "publisher": { "@id": "https://ideaconnect.social/#org" }
     },
     {
-      "@type": "MobileApplication",
-      "name": "IdeaConnect",
-      "operatingSystem": "iOS, Android",
-      "applicationCategory": "SocialNetworkingApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    },
-    {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -329,10 +312,6 @@
         <a href="https://forms.gle/CPTDTAvS8rmMY95aA" target="_blank" rel="noopener" class="btn btn-light">Get early access</a>
         <a href="#how" class="btn btn-ghost on-dark">See how it works</a>
       </div>
-      <div class="hero-proof">
-        <div class="stack"><span class="a">AJ</span><span class="a">SW</span><span class="a">MB</span><span class="a">DK</span></div>
-        <span>Joined by 30,000+ founders &amp; backers</span>
-      </div>
     </div>
     <div class="hero-stage" id="heroStage">
       <img class="phone-img p-left"  data-depth="22" width="432" height="886" decoding="async" src="screens/cut/discover.png" alt="Discover ideas" />
@@ -341,10 +320,6 @@
     </div>
   </div>
 </header>
-
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-row" id="mq"></div>
-</div>
 
 <section class="sec" id="how">
   <div class="wrap">
@@ -469,7 +444,7 @@
     <div class="cta reveal">
       <div class="cta-in">
         <h2>Your next idea<br/>deserves a launchpad.</h2>
-        <p>Join 30,000+ builders, investors, and collaborators turning ideas into ventures. Free to start.</p>
+        <p>Be among the first builders, investors, and collaborators turning ideas into ventures. Free to start.</p>
         <div style="margin-top:34px;"><a href="https://forms.gle/CPTDTAvS8rmMY95aA" target="_blank" rel="noopener" class="btn btn-light">Get early access</a></div>
         <div class="soon-pill"><span class="pulse"></span>Apps coming soon</div>
         <div class="badges" role="group" aria-label="Mobile apps coming soon">
@@ -488,7 +463,7 @@
         <a href="#top" class="brand"><span class="logo"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#62B5DE"/><path fill="#fff" d="M14.817 6.421h2v8.886h8.887v2H14.817zm-5.959.437h2v14.283h14.283v2H8.858z"/></svg></span>IdeaConnect</a>
         <p>The home for builders, investors, and collaborators. Collaborate &amp; launch ideas.</p>
       </div>
-      <div class="fcol"><h4>Product</h4><a href="#how">How it works</a><a href="#features">Features</a><a href="#who">For you</a><a href="#cta">Get the app</a></div>
+      <div class="fcol"><h4>Product</h4><a href="#how">How it works</a><a href="#features">Features</a><a href="#who">For you</a><a href="https://forms.gle/CPTDTAvS8rmMY95aA" target="_blank" rel="noopener">Get early access</a></div>
       <div class="fcol"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="security.html">Security</a><a href="contact.html">Contact</a></div>
       <div class="fcol"><h4>Get started</h4><a href="#how">How it works</a><a href="#who">For you</a><a href="#faq">FAQ</a><a href="#cta">Early access</a></div>
     </div>
