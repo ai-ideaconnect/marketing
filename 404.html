@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — IdeaConnect</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0B0B0C" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0B0B0C;--night:#0B0B0C;--accent:#2F6BFF;--ease:cubic-bezier(.22,.61,.36,1);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;background:var(--night);color:#fff;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .nf{position:relative;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
+  .nf::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(680px 420px at 70% 8%, rgba(47,107,255,.22), transparent 60%),
+    radial-gradient(560px 380px at 15% 95%, rgba(255,255,255,.06), transparent 60%);pointer-events:none;}
+  .nf-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(circle at 55% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 55% 40%,#000,transparent 75%);pointer-events:none;}
+  .nf-in{position:relative;z-index:2;max-width:560px;}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-0.02em;margin-bottom:48px;}
+  .brand .logo{width:34px;height:34px;border-radius:10px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;}
+  .brand .logo svg{width:20px;height:20px;}
+  .code{font-size:clamp(96px,22vw,200px);font-weight:900;letter-spacing:-0.06em;line-height:.9;
+    background:linear-gradient(180deg,#fff,#7FA4FF);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h1{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-0.03em;margin-top:24px;}
+  p{color:#B6B6BB;font-size:17px;line-height:1.55;margin-top:16px;max-width:420px;margin-left:auto;margin-right:auto;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 28px;border-radius:999px;
+    font-size:15.5px;font-weight:700;background:#fff;color:var(--ink);margin-top:34px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(0,0,0,.5);}
+  .btn svg{width:18px;height:18px;}
+  .links{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;}
+  .links a{font-size:14.5px;font-weight:600;color:rgba(255,255,255,.7);transition:color .2s;}
+  .links a:hover{color:#fff;}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+  <main class="nf">
+    <div class="nf-grid"></div>
+    <div class="nf-in">
+      <a href="index.html" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>IdeaConnect</a>
+      <div class="code">404</div>
+      <h1>This idea hasn't been posted yet.</h1>
+      <p>The page you're looking for moved, launched somewhere else, or never existed. Let's get you back on track.</p>
+      <a href="index.html" class="btn">Back to home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></a>
+      <div class="links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

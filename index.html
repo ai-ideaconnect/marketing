@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IdeaConnect — Collaborate &amp; Launch Ideas</title>
+<meta name="description" content="IdeaConnect is the home for builders, investors, and collaborators. Share an idea, find your people, and take it from spark to launch — all in one app." />
+<link rel="canonical" href="https://ideaconnect.app/" />
+<meta name="theme-color" content="#0B0B0C" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="IdeaConnect" />
+<meta property="og:title" content="IdeaConnect — Collaborate &amp; Launch Ideas" />
+<meta property="og:description" content="Share an idea, find your people, and take it from spark to launch. The home for builders, investors, and collaborators." />
+<meta property="og:url" content="https://ideaconnect.app/" />
+<meta property="og:image" content="https://ideaconnect.app/assets/cover.png" />
+<meta property="og:image:width" content="1040" />
+<meta property="og:image:height" content="440" />
+<meta property="og:image:alt" content="IdeaConnect — collaborate and launch ideas" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="IdeaConnect — Collaborate &amp; Launch Ideas" />
+<meta name="twitter:description" content="Share an idea, find your people, and take it from spark to launch. The home for builders, investors, and collaborators." />
+<meta name="twitter:image" content="https://ideaconnect.app/assets/cover.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0B0B0C; --muted:#6B6B70; --border:#E6E6E8; --accent:#2F6BFF; --surf:#F4F4F6;
+    --bg:#FFFFFF; --night:#0B0B0C; --night2:#161617;
+    --r:22px; --maxw:1200px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .eyebrow.on-dark{color:#9A9AA0;}
+  h1,h2,h3{letter-spacing:-0.03em;font-weight:800;line-height:1.04;}
+  .sec{padding:120px 0;}
+  .sec-head{max-width:680px;}
+  .sec-head h2{font-size:clamp(32px,4.6vw,52px);margin-top:18px;}
+  .sec-head p{font-size:clamp(16px,1.5vw,19px);color:var(--muted);margin-top:18px;line-height:1.6;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 28px;border-radius:999px;
+    font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s;white-space:nowrap;}
+  .btn svg{width:18px;height:18px;}
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(11,11,12,.5);}
+  .btn-light{background:#fff;color:var(--ink);}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(0,0,0,.45);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .btn-ghost.on-dark{color:#fff;border-color:rgba(255,255,255,.28);}
+  .btn-ghost.on-dark:hover{border-color:#fff;background:rgba(255,255,255,.06);}
+
+  .badges{display:flex;gap:12px;flex-wrap:wrap;}
+  .badge{display:inline-flex;align-items:center;gap:11px;height:56px;padding:0 20px;border-radius:15px;background:var(--ink);color:#fff;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+  .badge:hover{transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(0,0,0,.5);}
+  .badge.on-dark{background:#fff;color:var(--ink);}
+  .badge svg{width:24px;height:24px;flex-shrink:0;}
+  .badge .b-t{display:flex;flex-direction:column;line-height:1.1;text-align:left;}
+  .badge .b-t small{font-size:10px;font-weight:600;opacity:.72;letter-spacing:.02em;}
+  .badge .b-t span{font-size:16px;font-weight:700;letter-spacing:-0.01em;}
+
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent;}
+  .nav.scrolled{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom-color:var(--border);}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-0.02em;}
+  .brand .logo{width:34px;height:34px;border-radius:10px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;}
+  .brand .logo svg{width:20px;height:20px;}
+  .nav.scrolled .brand{color:var(--ink);}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:15px;font-weight:600;color:var(--muted);transition:color .2s;position:relative;}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;background:var(--ink);transition:right .25s var(--ease);border-radius:2px;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{right:0;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-cta .btn{height:44px;padding:0 20px;font-size:14.5px;}
+  .nav-toggle{display:none;width:44px;height:44px;border:1.5px solid var(--border);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer;}
+  .nav-toggle svg{width:22px;height:22px;}
+  /* nav over dark hero (top, not scrolled) */
+  .nav:not(.scrolled) .brand{color:#fff;}
+  .nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.78);}
+  .nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+  .nav:not(.scrolled) .nav-links a::after{background:#fff;}
+  .nav:not(.scrolled) .brand .logo{background:#fff;color:var(--ink);}
+  .nav:not(.scrolled) .nav-cta .btn-primary{background:#fff;color:var(--ink);}
+  .nav:not(.scrolled) .nav-toggle{background:transparent;border-color:rgba(255,255,255,.3);color:#fff;}
+
+  .hero{position:relative;background:var(--night);color:#fff;padding:152px 0 90px;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(680px 420px at 78% 12%, rgba(47,107,255,.20), transparent 60%),
+    radial-gradient(560px 380px at 12% 92%, rgba(255,255,255,.07), transparent 60%);pointer-events:none;}
+  .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(circle at 60% 35%,#000,transparent 78%);mask-image:radial-gradient(circle at 60% 35%,#000,transparent 78%);pointer-events:none;}
+  .hero-in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+  .hero-copy{max-width:560px;}
+  .hero h1{font-size:clamp(40px,5.6vw,72px);font-weight:900;letter-spacing:-0.04em;margin-top:22px;}
+  .hero h1 .g{color:#7FA4FF;}
+  .hero p.sub{font-size:clamp(17px,1.7vw,21px);color:#B6B6BB;margin-top:24px;max-width:480px;line-height:1.55;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  .hero-proof{margin-top:32px;display:flex;align-items:center;gap:14px;color:#9A9AA0;font-size:14px;font-weight:500;}
+  .stack{display:flex;}
+  .stack .a{width:34px;height:34px;border-radius:50%;border:2px solid var(--night);background:#2a2a30;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-left:-10px;}
+  .stack .a:first-child{margin-left:0;}
+
+  .hero-stage{position:relative;height:560px;}
+  .phone-img{position:absolute;border-radius:38px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));will-change:transform;--px:0px;--py:0px;}
+  .p-main{width:288px;left:50%;top:50%;z-index:3;animation:float1 7s var(--ease) infinite;}
+  .p-left{width:226px;left:6%;top:24%;z-index:2;opacity:.96;animation:float2 6s var(--ease) infinite;}
+  .p-right{width:226px;right:4%;top:40%;z-index:2;opacity:.96;animation:float3 6.6s var(--ease) infinite;}
+  @keyframes float1{0%,100%{transform:translate(calc(-50% + var(--px)),calc(-50% + var(--py)))}50%{transform:translate(calc(-50% + var(--px)),calc(-50% + var(--py) - 16px))}}
+  @keyframes float2{0%,100%{transform:translate(var(--px),var(--py))}50%{transform:translate(var(--px),calc(var(--py) - 13px))}}
+  @keyframes float3{0%,100%{transform:translate(var(--px),var(--py))}50%{transform:translate(var(--px),calc(var(--py) + 14px))}}
+
+  .marquee{border-bottom:1px solid var(--border);background:#fff;padding:30px 0;overflow:hidden;}
+  .marquee-row{display:flex;gap:64px;width:max-content;animation:scrollx 32s linear infinite;}
+  .marquee:hover .marquee-row{animation-play-state:paused;}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  .mq-item{font-size:21px;font-weight:800;letter-spacing:-0.02em;color:#C2C2C7;white-space:nowrap;display:flex;align-items:center;gap:10px;}
+  .mq-item svg{width:20px;height:20px;}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .stat .n{font-size:clamp(38px,4.5vw,56px);font-weight:900;letter-spacing:-0.04em;line-height:1;}
+  .stat .l{margin-top:10px;font-size:15px;color:var(--muted);font-weight:600;}
+  .stat .bar{height:3px;width:40px;background:var(--ink);border-radius:2px;margin-top:18px;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;}
+  .step{background:var(--surf);border-radius:var(--r);padding:34px 30px;position:relative;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .step:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(11,11,12,.3);}
+  .step .si{width:54px;height:54px;border-radius:16px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;}
+  .step .si svg{width:26px;height:26px;}
+  .step .sn{position:absolute;top:28px;right:30px;font-size:14px;font-weight:800;color:#C2C2C7;}
+  .step h3{font-size:22px;margin-top:24px;}
+  .step p{font-size:15px;color:var(--muted);margin-top:11px;line-height:1.6;}
+
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .frow + .frow{margin-top:120px;}
+  .frow.rev .f-media{order:2;}
+  .f-copy h3{font-size:clamp(26px,3vw,38px);margin-top:18px;}
+  .f-copy p{font-size:17px;color:var(--muted);margin-top:16px;line-height:1.65;}
+  .f-list{margin-top:24px;display:flex;flex-direction:column;gap:13px;}
+  .f-list li{list-style:none;display:flex;align-items:flex-start;gap:12px;font-size:15.5px;font-weight:500;}
+  .f-list .ck{width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .f-list .ck svg{width:14px;height:14px;}
+  .f-media{position:relative;display:flex;align-items:center;justify-content:center;min-height:420px;border-radius:30px;
+    background:linear-gradient(160deg,#F4F4F6,#ECECEF);overflow:hidden;}
+  .f-media.dark{background:linear-gradient(160deg,#1b1b1d,#0d0d0e);}
+  .f-media .glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(47,107,255,.22),transparent 70%);}
+  .f-media img{position:relative;width:248px;border-radius:32px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.3));}
+
+  .personas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;}
+  .persona{border:1px solid var(--border);border-radius:var(--r);padding:34px 30px;background:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;}
+  .persona:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(11,11,12,.28);border-color:#D2D2D6;}
+  .persona .pi{width:54px;height:54px;border-radius:16px;background:var(--surf);color:var(--ink);display:flex;align-items:center;justify-content:center;}
+  .persona .pi svg{width:26px;height:26px;}
+  .persona h3{font-size:21px;margin-top:22px;}
+  .persona p{font-size:15px;color:var(--muted);margin-top:10px;line-height:1.6;}
+  .persona .plink{display:inline-flex;align-items:center;gap:7px;margin-top:20px;font-size:14.5px;font-weight:700;color:var(--ink);}
+  .persona .plink svg{width:16px;height:16px;transition:transform .2s var(--ease);}
+  .persona:hover .plink svg{transform:translateX(4px);}
+
+  .showcase{background:var(--night);color:#fff;padding:110px 0;overflow:hidden;}
+  .showcase .eyebrow{color:#9A9AA0;}
+  .showcase h2{font-size:clamp(30px,4vw,46px);margin-top:16px;max-width:620px;}
+  .showcase p{color:#B6B6BB;margin-top:16px;max-width:560px;font-size:17px;line-height:1.6;}
+  .rail{margin-top:56px;display:flex;gap:24px;overflow-x:auto;padding:10px 28px 30px;scroll-snap-type:x mandatory;}
+  .rail::-webkit-scrollbar{height:8px;}
+  .rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:4px;}
+  .rail img{width:240px;flex-shrink:0;border-radius:30px;scroll-snap-align:center;filter:drop-shadow(0 28px 46px rgba(0,0,0,.5));transition:transform .35s var(--ease);}
+  .rail img:hover{transform:translateY(-10px);}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;}
+  .quote{border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .quote:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(11,11,12,.26);}
+  .quote .stars{display:flex;gap:3px;color:var(--ink);font-size:15px;letter-spacing:2px;}
+  .quote p{font-size:16px;line-height:1.62;margin-top:18px;font-weight:500;}
+  .quote .who{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .quote .qav{width:42px;height:42px;border-radius:50%;background:var(--surf);color:#46464B;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .quote .qn{font-size:14.5px;font-weight:700;}
+  .quote .qr{font-size:12.5px;color:var(--muted);margin-top:1px;}
+
+  .faq{max-width:780px;margin:56px auto 0;}
+  .qa{border-bottom:1px solid var(--border);}
+  .qa-q{width:100%;background:none;border:none;font-family:inherit;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:24px 4px;cursor:pointer;text-align:left;font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
+  .qa-q .ico{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease),background .2s,color .2s;}
+  .qa-q .ico svg{width:17px;height:17px;}
+  .qa.open .qa-q .ico{transform:rotate(45deg);background:var(--ink);color:#fff;border-color:var(--ink);}
+  .qa-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+  .qa-a p{padding:0 4px 24px;font-size:15.5px;color:var(--muted);line-height:1.65;max-width:90%;}
+
+  .cta{background:var(--night);color:#fff;border-radius:36px;padding:84px 40px;text-align:center;position:relative;overflow:hidden;}
+  .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% -10%,rgba(47,107,255,.22),transparent 65%);}
+  .cta-in{position:relative;z-index:2;}
+  .cta h2{font-size:clamp(32px,4.6vw,54px);font-weight:900;letter-spacing:-0.04em;}
+  .cta p{color:#B6B6BB;font-size:18px;margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .cta .badges{justify-content:center;margin-top:34px;}
+
+  footer{padding:80px 0 50px;}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
+  .foot-brand .brand{margin-bottom:16px;}
+  .foot-brand p{color:var(--muted);font-size:14.5px;max-width:280px;line-height:1.6;}
+  .fcol h4{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+  .fcol a{display:block;font-size:14.5px;font-weight:600;color:var(--ink);padding:7px 0;transition:color .2s;}
+  .fcol a:hover{color:var(--accent);}
+  .foot-bot{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:54px;padding-top:28px;border-top:1px solid var(--border);color:var(--muted);font-size:13.5px;}
+
+  html.js .reveal{opacity:0;transform:translateY(28px);}
+  html.js .reveal.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  html.js .reveal[data-d="1"]{transition-delay:.08s;}
+  html.js .reveal[data-d="2"]{transition-delay:.16s;}
+  html.js .reveal[data-d="3"]{transition-delay:.24s;}
+
+  @media (max-width:900px){
+    .sec{padding:84px 0;}
+    .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .hero-in{grid-template-columns:1fr;gap:10px;}
+    .hero-stage{height:430px;margin-top:20px;order:2;}
+    .hero-copy{order:1;}
+    .p-main{width:230px;} .p-left{width:170px;left:2%;} .p-right{width:170px;right:0;}
+    .stats{grid-template-columns:1fr 1fr;gap:30px 20px;}
+    .steps,.personas,.quotes{grid-template-columns:1fr;}
+    .frow,.frow.rev .f-media{grid-template-columns:1fr;}
+    .frow .f-media{order:2 !important;min-height:340px;}
+    .frow + .frow{margin-top:64px;}
+    .foot-top{grid-template-columns:1fr 1fr;gap:34px 20px;}
+    .cta{padding:60px 26px;border-radius:26px;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .hero{padding:128px 0 70px;}
+    .foot-top{grid-template-columns:1fr;}
+    .foot-bot{flex-direction:column;align-items:flex-start;gap:14px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;scroll-behavior:auto;}
+    html.js .reveal{opacity:1 !important;transform:none !important;}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ideaconnect.app/#org",
+      "name": "IdeaConnect",
+      "url": "https://ideaconnect.app/",
+      "logo": "https://ideaconnect.app/favicon.svg"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ideaconnect.app/#website",
+      "url": "https://ideaconnect.app/",
+      "name": "IdeaConnect",
+      "description": "The home for builders, investors, and collaborators.",
+      "publisher": { "@id": "https://ideaconnect.app/#org" }
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "IdeaConnect",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "SocialNetworkingApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is IdeaConnect free to use?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — creating a profile, sharing ideas, and discovering people is free. We'll introduce optional premium tools for power users and funds later, but the core experience stays free." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is IdeaConnect for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Three groups, one community: idea owners looking for momentum, investors hunting for early signal, and collaborators searching for projects worth their skills." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you protect my idea?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You control visibility on every post — public, connections-only, or private draft. You decide how much to share, and safety tools like report, block, and private accounts are built in." }
+        },
+        {
+          "@type": "Question",
+          "name": "When does the app launch?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We're rolling out in early access now, region by region. Join the waitlist and you'll be first in line on both iOS and Android." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can investors contact me directly?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only with your intent. Interest and messages flow through mutual signals, so conversations start when both sides opt in — no cold spam." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>IdeaConnect</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#who">For you</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-primary">Get the app</a>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow on-dark"><span class="dot"></span>Now in early access</span>
+      <h1>Collaborate &amp;<br/>launch <span class="g">ideas.</span></h1>
+      <p class="sub">The home for builders, investors, and collaborators. Share an idea, find your people, and take it from spark to launch — all in one place.</p>
+      <div class="hero-cta">
+        <a href="#cta" class="btn btn-light">Get early access</a>
+        <a href="#how" class="btn btn-ghost on-dark">See how it works</a>
+      </div>
+      <div class="hero-proof">
+        <div class="stack"><span class="a">AJ</span><span class="a">SW</span><span class="a">MB</span><span class="a">DK</span></div>
+        <span>Joined by 30,000+ founders &amp; backers</span>
+      </div>
+    </div>
+    <div class="hero-stage" id="heroStage">
+      <img class="phone-img p-left"  data-depth="22" width="432" height="886" decoding="async" src="screens/cut/discover.png" alt="Discover ideas" />
+      <img class="phone-img p-right" data-depth="30" width="432" height="886" decoding="async" src="screens/cut/chat.png" alt="Message collaborators" />
+      <img class="phone-img p-main"  data-depth="12" width="432" height="886" decoding="async" fetchpriority="high" src="screens/cut/home.png" alt="IdeaConnect home feed" />
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-row" id="mq"></div>
+</div>
+
+<section class="sec" style="padding-bottom:90px;">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>The momentum</span>
+      <h2>Where ideas find their people.</h2>
+    </div>
+    <div class="stats" style="margin-top:56px;">
+      <div class="stat reveal" data-d="0"><div class="n"><span class="count" data-to="12400" data-suffix="+">0</span></div><div class="l">Ideas shared</div><div class="bar"></div></div>
+      <div class="stat reveal" data-d="1"><div class="n">$<span class="count" data-to="48" data-suffix="M">0</span></div><div class="l">Capital connected</div><div class="bar"></div></div>
+      <div class="stat reveal" data-d="2"><div class="n"><span class="count" data-to="30000" data-suffix="+">0</span></div><div class="l">Members</div><div class="bar"></div></div>
+      <div class="stat reveal" data-d="3"><div class="n"><span class="count" data-to="90" data-suffix="+">0</span></div><div class="l">Countries</div><div class="bar"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how" style="padding-top:30px;">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>How it works</span>
+      <h2>From spark to launch in three steps.</h2>
+      <p>No pitch decks, no cold emails. Post what you're building and let the right people come to you.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal" data-d="0"><span class="sn">01</span><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></div>
+        <h3>Share your idea</h3><p>Post a concept, prototype, or launched product with media, tags, and what you're looking for.</p></div>
+      <div class="step reveal" data-d="1"><span class="sn">02</span><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="9" r="2.6"/><circle cx="16" cy="9.5" r="2.2"/><path d="M3.5 18c.8-2.7 2.7-4 5-4s4.2 1.3 5 4"/><path d="M14.5 18c.6-2 1.9-3 3.6-3 1.2 0 2.2.5 2.9 1.5"/></svg></div>
+        <h3>Find your people</h3><p>Match with investors, collaborators, and mentors who care about your space — and start the conversation.</p></div>
+      <div class="step reveal" data-d="2"><span class="sn">03</span><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+        <h3>Build &amp; launch</h3><p>Schedule calls, track interest, and rally support as your idea grows from a post into a real venture.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features" style="padding-top:40px;">
+  <div class="wrap">
+    <div class="frow">
+      <div class="f-copy reveal">
+        <span class="eyebrow"><span class="dot"></span>Discover</span>
+        <h3>A feed that surfaces the right ideas.</h3>
+        <p>Browse by category, stage, or media type. Save what inspires you and signal interest with a single tap.</p>
+        <ul class="f-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Smart filters for skills, stage &amp; investment</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Grid &amp; list views, with saves and stars</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Trending tags and people you should meet</li>
+        </ul>
+      </div>
+      <div class="f-media reveal" data-d="1"><span class="glow"></span><img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/discover.png" alt="Discover screen" /></div>
+    </div>
+
+    <div class="frow rev">
+      <div class="f-media dark reveal" data-d="1"><span class="glow"></span><img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/create.png" alt="Create an idea screen" /></div>
+      <div class="f-copy reveal">
+        <span class="eyebrow"><span class="dot"></span>Create</span>
+        <h3>Publish a polished idea in minutes.</h3>
+        <p>A focused composer with rich text, media uploads, stage and category, and exactly who you're looking for.</p>
+        <ul class="f-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Photos, video &amp; gallery in one place</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Tag what you need: investor, collaborator, feedback</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Save drafts, control visibility, publish when ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="frow">
+      <div class="f-copy reveal">
+        <span class="eyebrow"><span class="dot"></span>Connect</span>
+        <h3>Real conversations, not cold intros.</h3>
+        <p>Message matches, react to ideas, and schedule calls without leaving the app. Every connection starts with shared intent.</p>
+        <ul class="f-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Direct messaging with voice notes &amp; reactions</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Built-in call scheduling across time zones</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Safety-first: report, block &amp; private accounts</li>
+        </ul>
+      </div>
+      <div class="f-media reveal" data-d="1"><span class="glow"></span><img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/chat.png" alt="Chat screen" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="who" style="background:var(--surf);">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Built for everyone in the room</span>
+      <h2>One platform, three ways in.</h2>
+    </div>
+    <div class="personas">
+      <div class="persona reveal" data-d="0">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></div>
+        <h3>Idea Owners</h3><p>Turn a concept into momentum. Get feedback, recruit collaborators, and attract backers who believe in it.</p>
+        <span class="plink">Share an idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+      </div>
+      <div class="persona reveal" data-d="1">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+        <h3>Investors</h3><p>Discover vetted ideas early. Filter by sector and stage, follow what's promising, and reach founders directly.</p>
+        <span class="plink">Find ideas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+      </div>
+      <div class="persona reveal" data-d="2">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="9" r="2.6"/><circle cx="16" cy="9.5" r="2.2"/><path d="M3.5 18c.8-2.7 2.7-4 5-4s4.2 1.3 5 4"/><path d="M14.5 18c.6-2 1.9-3 3.6-3 1.2 0 2.2.5 2.9 1.5"/></svg></div>
+        <h3>Collaborators</h3><p>Join projects that match your skills. Find founders building what you'd love to work on and jump in.</p>
+        <span class="plink">Browse projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow"><span class="dot"></span>A closer look</span>
+      <h2>Designed to feel effortless.</h2>
+      <p>Every screen is crafted for focus — clean, fast, and beautifully consistent from your first idea to your hundredth connection.</p>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/splash.png" alt="Welcome" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/home.png" alt="Home feed" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/discover.png" alt="Discover" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/detail.png" alt="Idea detail" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/create.png" alt="Create idea" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/chat.png" alt="Chat" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/notifications.png" alt="Notifications" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/profile.png" alt="Profile" />
+    <img width="432" height="886" loading="lazy" decoding="async" src="screens/cut/story.png" alt="Story" />
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Loved by builders</span>
+      <h2>Ideas that found their footing here.</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal" data-d="0">
+        <div class="stars">★★★★★</div>
+        <p>"Posted my microgrid concept on a Tuesday. By Friday I had two pilot clinics and an angel intro. IdeaConnect compresses months into days."</p>
+        <div class="who"><span class="qav">MO</span><div><div class="qn">Maya Okafor</div><div class="qr">Founder · CleanGrid</div></div></div>
+      </div>
+      <div class="quote reveal" data-d="1">
+        <div class="stars">★★★★★</div>
+        <p>"As an investor, the signal-to-noise is unreal. I filter by sector and stage and actually talk to founders before anyone else does."</p>
+        <div class="who"><span class="qav">SW</span><div><div class="qn">Sophia Williams</div><div class="qr">Angel Investor</div></div></div>
+      </div>
+      <div class="quote reveal" data-d="2">
+        <div class="stars">★★★★★</div>
+        <p>"I found a team building exactly what I wanted to work on. Three messages later I was a co-founder. It just works."</p>
+        <div class="who"><span class="qav">MB</span><div><div class="qn">Michael Brown</div><div class="qr">Engineer &amp; Collaborator</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:var(--surf);">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin:0 auto;text-align:center;">
+      <span class="eyebrow"><span class="dot"></span>Questions</span>
+      <h2>Everything you need to know.</h2>
+    </div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section class="sec" id="cta" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="cta-in">
+        <h2>Your next idea<br/>deserves a launchpad.</h2>
+        <p>Join 30,000+ builders, investors, and collaborators turning ideas into ventures. Free to start.</p>
+        <div class="badges">
+          <a class="badge on-dark" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.2c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.2 3.4-3.8 3.4-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.7-3.7-3.2C1 16.9.7 12 2.4 9.4c1-1.6 2.6-2.5 4.1-2.5 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4 0 8.3z"/></svg><span class="b-t"><small>Download on the</small><span>App Store</span></span></a>
+          <a class="badge on-dark" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L3.7 2.2l-.1.1zM16.3 15.4l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.8 2zM15.8 15.9l-3.2-3.2-9.1 9.1c.4.4 1 .4 1.6.1l10.7-6zM15.8 8.4 5.1 2.3c-.6-.3-1.2-.3-1.6.1l9.1 9.1 3.2-3.1z"/></svg><span class="b-t"><small>Get it on</small><span>Google Play</span></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>IdeaConnect</a>
+        <p>The home for builders, investors, and collaborators. Collaborate &amp; launch ideas.</p>
+      </div>
+      <div class="fcol"><h4>Product</h4><a href="#how">How it works</a><a href="#features">Features</a><a href="#who">For you</a><a href="#cta">Get the app</a></div>
+      <div class="fcol"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="security.html">Security</a><a href="contact.html">Contact</a></div>
+      <div class="fcol"><h4>Get started</h4><a href="#how">How it works</a><a href="#who">For you</a><a href="#faq">FAQ</a><a href="#cta">Early access</a></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 IdeaConnect. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="marketing.js"></script>
+</body>
+</html>
