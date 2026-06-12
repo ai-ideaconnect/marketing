@@ -128,10 +128,6 @@
   .mq-item{font-size:21px;font-weight:800;letter-spacing:-0.02em;color:#C2C2C7;white-space:nowrap;display:flex;align-items:center;gap:10px;}
   .mq-item svg{width:20px;height:20px;}
 
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-  .stat .n{font-size:clamp(38px,4.5vw,56px);font-weight:900;letter-spacing:-0.04em;line-height:1;}
-  .stat .l{margin-top:10px;font-size:15px;color:var(--muted);font-weight:600;}
-  .stat .bar{height:3px;width:40px;background:var(--ink);border-radius:2px;margin-top:18px;}
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;}
   .step{background:var(--surf);border-radius:var(--r);padding:34px 30px;position:relative;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
@@ -235,7 +231,6 @@
     .hero-stage{height:430px;margin-top:20px;order:2;}
     .hero-copy{order:1;}
     .p-main{width:230px;} .p-left{width:170px;left:2%;} .p-right{width:170px;right:0;}
-    .stats{grid-template-columns:1fr 1fr;gap:30px 20px;}
     .steps,.personas,.quotes{grid-template-columns:1fr;}
     .frow,.frow.rev .f-media{grid-template-columns:1fr;}
     .frow .f-media{order:2 !important;min-height:340px;}
@@ -245,7 +240,6 @@
   }
   @media (max-width:560px){
     .wrap{padding:0 20px;}
-    .stats{grid-template-columns:1fr 1fr;}
     .hero{padding:128px 0 70px;}
     .foot-top{grid-template-columns:1fr;}
     .foot-bot{flex-direction:column;align-items:flex-start;gap:14px;}
@@ -361,21 +355,7 @@
   <div class="marquee-row" id="mq"></div>
 </div>
 
-<section class="sec" style="padding-bottom:90px;">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>The momentum</span>
-      <h2>Where ideas find their people.</h2>
-    </div>
-    <div class="stats" style="margin-top:56px;">
-      <div class="stat reveal" data-d="0"><div class="n"><span class="count" data-to="12400" data-suffix="+">0</span></div><div class="l">Ideas shared</div><div class="bar"></div></div>
-      <div class="stat reveal" data-d="1"><div class="n">$<span class="count" data-to="48" data-suffix="M">0</span></div><div class="l">Capital connected</div><div class="bar"></div></div>
-      <div class="stat reveal" data-d="2"><div class="n"><span class="count" data-to="30000" data-suffix="+">0</span></div><div class="l">Members</div><div class="bar"></div></div>
-      <div class="stat reveal" data-d="3"><div class="n"><span class="count" data-to="90" data-suffix="+">0</span></div><div class="l">Countries</div><div class="bar"></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="how" style="padding-top:30px;">
+<section class="sec" id="how">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>How it works</span>
       <h2>From spark to launch in three steps.</h2>
