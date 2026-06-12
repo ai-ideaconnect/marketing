@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ideaconnect.app/sitemap.xml
+Sitemap: https://ideaconnect.social/sitemap.xml
