@@ -203,7 +203,14 @@
   .cta-in{position:relative;z-index:2;}
   .cta h2{font-size:clamp(32px,4.6vw,54px);font-weight:900;letter-spacing:-0.04em;}
   .cta p{color:#B6B6BB;font-size:18px;margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.55;}
-  .cta .badges{justify-content:center;margin-top:34px;}
+  .cta .badges{justify-content:center;margin-top:22px;}
+  .soon-pill{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:8px 16px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#CFE0FF;
+    font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+  .soon-pill .pulse{width:8px;height:8px;border-radius:50%;background:#7FA4FF;}
+  html.js .soon-pill .pulse{animation:pulse 2s var(--ease) infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,164,255,.55)}70%{box-shadow:0 0 0 9px rgba(127,164,255,0)}100%{box-shadow:0 0 0 0 rgba(127,164,255,0)}}
+  .badge.soon{pointer-events:none;opacity:.85;}
 
   footer{padding:80px 0 50px;}
   .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
@@ -517,9 +524,10 @@
       <div class="cta-in">
         <h2>Your next idea<br/>deserves a launchpad.</h2>
         <p>Join 30,000+ builders, investors, and collaborators turning ideas into ventures. Free to start.</p>
-        <div class="badges">
-          <a class="badge on-dark" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.2c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.2 3.4-3.8 3.4-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.7-3.7-3.2C1 16.9.7 12 2.4 9.4c1-1.6 2.6-2.5 4.1-2.5 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4 0 8.3z"/></svg><span class="b-t"><small>Download on the</small><span>App Store</span></span></a>
-          <a class="badge on-dark" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L3.7 2.2l-.1.1zM16.3 15.4l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.8 2zM15.8 15.9l-3.2-3.2-9.1 9.1c.4.4 1 .4 1.6.1l10.7-6zM15.8 8.4 5.1 2.3c-.6-.3-1.2-.3-1.6.1l9.1 9.1 3.2-3.1z"/></svg><span class="b-t"><small>Get it on</small><span>Google Play</span></span></a>
+        <div class="soon-pill"><span class="pulse"></span>Apps coming soon</div>
+        <div class="badges" role="group" aria-label="Mobile apps coming soon">
+          <span class="badge on-dark soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.5c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.2c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.2 3.4-3.8 3.4-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.7-3.7-3.2C1 16.9.7 12 2.4 9.4c1-1.6 2.6-2.5 4.1-2.5 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4 0 8.3z"/></svg><span class="b-t"><small>Coming soon to</small><span>App Store</span></span></span>
+          <span class="badge on-dark soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L3.7 2.2l-.1.1zM16.3 15.4l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.8 2zM15.8 15.9l-3.2-3.2-9.1 9.1c.4.4 1 .4 1.6.1l10.7-6zM15.8 8.4 5.1 2.3c-.6-.3-1.2-.3-1.6.1l9.1 9.1 3.2-3.1z"/></svg><span class="b-t"><small>Coming soon to</small><span>Google Play</span></span></span>
         </div>
       </div>
     </div>
